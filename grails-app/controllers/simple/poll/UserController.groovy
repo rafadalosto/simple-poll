@@ -7,7 +7,7 @@ class UserController {
 
 	def userService
 
-	static allowedMethods = [list: 'GET', create: 'POST', getUser: 'GET', update: 'PUT', delete: 'DELETE' ]
+	static allowedMethods = [list: 'GET', create: 'GET', getUser: 'GET', update: 'PUT', delete: 'DELETE' ]
 
     def list() { 
     	def userList = userService.listUsers()
@@ -16,7 +16,7 @@ class UserController {
     }
 
     def create() {
-    	def json = request.JSON
+    	def json = params
     	try {
     		def user 	= userService.saveUser(json)	
     		def result 	= [user:user, message: "Usuário salvo com sucesso"]

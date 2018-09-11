@@ -24,6 +24,8 @@ class UserService {
     		throw new RuntimeException("O ID do usuário informado é inválido!")
     	}
 
+        println params
+        
     	user.name 		= params.name
     	user.email 		= params.email
     	user.birthDate 	= convertStringToDate(params.birthDate)
